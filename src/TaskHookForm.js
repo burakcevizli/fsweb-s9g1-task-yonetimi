@@ -3,8 +3,10 @@ import { useForm } from 'react-hook-form';
 
 export default function TaskHookForm({kisiler , submitFn}) {
   const { register, handleSubmit, formState: { errors } } = useForm({mode:"all"});
-  const onSubmit = data => submitFn(data);
+  const onSubmit = (data) =>submitFn(data)
   
+
+
   console.log(errors)
   
   return (
@@ -52,14 +54,7 @@ export default function TaskHookForm({kisiler , submitFn}) {
         </div>
       ))}
       {errors.people && <p>{errors.people.message}</p>}
-          
-      
-      
       <input type="submit"  value="Görevi Ekle"/>
-
-        
-
-      
     </form>
   );
 }
