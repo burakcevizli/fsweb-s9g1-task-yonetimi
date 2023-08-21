@@ -1,11 +1,17 @@
 import React from 'react'
+import { nanoid } from "nanoid";
 import { useForm } from 'react-hook-form';
 
 export default function TaskHookForm({kisiler , submitFn}) {
   const { register, handleSubmit, formState: { errors } } = useForm({mode:"all"});
-  const onSubmit = (data) =>submitFn(data)
+
+  const onSubmit = (data) =>{submitFn({...data,status: "yapılacak",id: nanoid(5)})} 
+
+
+
   
 
+    
 
   console.log(errors)
   
@@ -45,6 +51,7 @@ export default function TaskHookForm({kisiler , submitFn}) {
       {kisiler.map((herbirkisi, i) => (
         <div key={i}>
           <input
+            value={herbirkisi}
             type="checkbox"
             {...register('people', {
               required: 'En az bir kişi seçmelisiniz !',

@@ -1,6 +1,8 @@
 import React from "react";
 
 const Task = ({ taskObj, onComplete }) => {
+
+
   return (
     <div className="task">
       <h3>{taskObj.title}</h3>
@@ -9,7 +11,7 @@ const Task = ({ taskObj, onComplete }) => {
         {taskObj.people.map((p) => (
           <span className="pill" key={p}>{p}</span>
         ))}
-      </div>
+      </div >
       {onComplete && <button onClick={() => onComplete(taskObj.id)}>Tamamlandı</button>}
     </div>
   );
