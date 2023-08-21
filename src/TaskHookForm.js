@@ -9,7 +9,7 @@ export default function TaskHookForm({ kisiler, submitFn }) {
 
   const onSubmit = (data) => { submitFn({ ...data, status: "yapılacak", id: nanoid(5) }) }
 
-  const notify = () => {
+  const Success = () => {
     if (register) {
       toast("Yeni Göreviniz Eklendi !");
     }
@@ -76,9 +76,9 @@ export default function TaskHookForm({ kisiler, submitFn }) {
         {errors.people && <p className="input-error">{errors.people.message}</p>}
       </div>
       <div className="form-line">
-        <input type="submit" className="submit-button" value="Görevi Ekle" onClick={notify} />
-        <ToastContainer 
-          position="top-right"
+        <input type="submit" className="submit-button" value="Görevi Ekle" onClick={Success} />
+        <ToastContainer
+          position="top-center"
           autoClose={1300}
           hideProgressBar={false}
           newestOnTop={false}
@@ -87,7 +87,7 @@ export default function TaskHookForm({ kisiler, submitFn }) {
           pauseOnFocusLoss
           draggable
           pauseOnHover
-          theme="light" />
+          theme="dark" />
       </div>
     </form>
   );

@@ -28,7 +28,7 @@ function App() {
     setTasks(guncelTasks);
   }
 
- 
+
 
   return (
     <div className="app">
@@ -66,7 +66,7 @@ function App() {
           </div>
         </div>
       </div>
-                
+
     </div>
   );
 }

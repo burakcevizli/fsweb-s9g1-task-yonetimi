@@ -1,5 +1,5 @@
 import React from "react";
-import { ToastContainer , toast } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 
 const Task = ({ taskObj, onComplete }) => {
 
@@ -14,18 +14,8 @@ const Task = ({ taskObj, onComplete }) => {
           <span className="pill" key={p}>{p}</span>
         ))}
       </div >
-      {onComplete && <button onClick={() => { onComplete(taskObj.id); notify();}}>Tamamlandı</button>}
-      <ToastContainer 
-          position="top-right"
-          autoClose={1300}
-          hideProgressBar={false}
-          newestOnTop={false}
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-          theme="light"/>
+      {onComplete && <button onClick={() => { onComplete(taskObj.id); notify(); }}>Tamamlandı</button>}
+
     </div>
   );
 };
