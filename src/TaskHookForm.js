@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { nanoid } from "nanoid";
 import { useForm } from 'react-hook-form';
+import { useState } from 'react';
 
 export default function TaskHookForm({kisiler , submitFn}) {
   const { register, handleSubmit, formState: { errors } } = useForm({mode:"all"});
@@ -62,7 +63,10 @@ export default function TaskHookForm({kisiler , submitFn}) {
             value={herbirkisi}
             type="checkbox"
             {...register('people', {
-              required: 'En az bir kişi seçmelisiniz !',
+              required: 'En az bir kişi seçmelisiniz !', validate: {
+                maxThree: value =>
+                  value.length <= 3 || 'En fazla 3 kişi seçebilirsiniz!'
+              }
             })}
           />
           {herbirkisi}
