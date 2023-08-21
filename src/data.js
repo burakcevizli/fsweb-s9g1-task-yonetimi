@@ -1,4 +1,4 @@
-export const initialTeam = ["ömer", "emre"];
+export const initialTeam = ["Ömer", "Emre"];
 
 export const initialTasks = [
   {

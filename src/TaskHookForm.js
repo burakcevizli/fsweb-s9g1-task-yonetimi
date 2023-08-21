@@ -16,9 +16,11 @@ export default function TaskHookForm({kisiler , submitFn}) {
   console.log(errors)
   
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <label htmlFor="title">Başlığınız :</label>
+    <form className="taskForm" onSubmit={handleSubmit(onSubmit)}>
+       <div className="form-line">
+      <label htmlFor="title" className="input-label">Başlığınız :</label>
       <input
+      className="input-text"
         type="text"
         id="title"
         placeholder="Title"
@@ -30,10 +32,14 @@ export default function TaskHookForm({kisiler , submitFn}) {
           }
         })}
       />
-      {errors.title && <p>{errors.title.message}</p>}
-      
-      <label htmlFor="description">Açıklama :</label>
+      {errors.title && <p className="input-error">{errors.title.message}</p>}
+      </div>
+
+      <div className="form-line">
+      <label htmlFor="description" className="input-label" >Açıklama :</label>
       <input
+      
+      className="input-textarea"
         type="text"
         id="description"
         placeholder="Açıklama"
@@ -45,12 +51,14 @@ export default function TaskHookForm({kisiler , submitFn}) {
           }
         })}
       />
-      {errors.description && <p>{errors.description.message}</p>}
-
-      <label>İnsanlar :</label>
+      {errors.description && <p className="input-error">{errors.description.message}</p>}
+      </div>
+      <div className="form-line">
+      <label className="input-label">İnsanlar :</label>
       {kisiler.map((herbirkisi, i) => (
         <div key={i}>
           <input
+          className="input-checkbox"
             value={herbirkisi}
             type="checkbox"
             {...register('people', {
@@ -60,8 +68,11 @@ export default function TaskHookForm({kisiler , submitFn}) {
           {herbirkisi}
         </div>
       ))}
-      {errors.people && <p>{errors.people.message}</p>}
-      <input type="submit"  value="Görevi Ekle"/>
+       {errors.people && <p className="input-error">{errors.people.message}</p>}
+       </div>
+       <div className="form-line">
+      <input type="submit" className="submit-button"  value="Görevi Ekle"/>
+      </div>
     </form>
   );
 }
